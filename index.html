@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Happy Birthday Sanu the Mermaid 🧜‍♀️</title>
+  <style>
+    :root{
+      --pink:#ff70bc; --hot:#ff3c98; --aqua:#61e7ff; --blue:#087ed0;
+      --navy:#06254a; --cream:#fff8e8; --violet:#9a6dff;
+      --shadow:0 22px 60px rgba(2,18,55,.34); --radius:42px;
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:ui-rounded,"SF Pro Rounded","Trebuchet MS",system-ui,-apple-system,sans-serif;background:#05366e;color:var(--cream)}
+    body{position:fixed;inset:0;touch-action:manipulation;user-select:none}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+
+    .app{position:relative;width:100vw;height:100dvh;height:calc(var(--vh,1vh)*100);overflow:hidden;background:linear-gradient(180deg,#17c9eb 0%,#0a8ad0 37%,#075aa1 67%,#052c63 100%)}
+    .app::before{content:"";position:absolute;inset:0;background:url('assets/ocean.webp') center/cover no-repeat;opacity:.3;filter:saturate(1.25)}
+    .app::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 9%,rgba(255,255,255,.45),transparent 18%),radial-gradient(circle at 90% 18%,rgba(255,211,238,.42),transparent 22%),radial-gradient(circle at 50% 96%,rgba(6,22,61,.55),transparent 44%);pointer-events:none}
+
+    .screen{position:absolute;inset:0;display:grid;place-items:center;padding:32px 54px calc(76px + env(safe-area-inset-bottom));transform:translateX(105%);opacity:0;transition:transform .55s cubic-bezier(.2,.9,.2,1),opacity .45s;z-index:2}
+    .screen.active{transform:translateX(0);opacity:1}.screen.prev{transform:translateX(-105%);opacity:0}
+    .page-card{position:relative;overflow:hidden;width:min(1280px,calc(100vw - 92px));height:min(820px,calc(100dvh - 120px));border:1px solid rgba(255,255,255,.32);border-radius:var(--radius);padding:clamp(22px,3.8vw,54px);background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,255,255,.08));box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+    .inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:14px;text-align:center;max-width:1120px;margin:0 auto;min-height:0}
+    .topline{align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:10px;color:rgba(255,255,255,.9);font-size:12px;letter-spacing:.08em;text-transform:uppercase}.pill{border:1px solid rgba(255,255,255,.36);background:rgba(255,255,255,.16);border-radius:999px;padding:7px 11px;box-shadow:0 5px 18px rgba(0,0,0,.1)}
+    .title{margin:0;font-size:clamp(44px,6.3vw,92px);line-height:.9;text-shadow:0 7px 22px rgba(3,27,69,.34);letter-spacing:-.055em}.subtitle{margin:0;font-size:clamp(16px,2vw,24px);line-height:1.3;color:#fff9d8;text-shadow:0 4px 13px rgba(5,30,70,.3)}.small{font-size:13px;line-height:1.3;color:rgba(255,255,255,.86)}
+    .btn-row{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;width:100%}.btn{border:0;color:#07365d;background:linear-gradient(180deg,#fff9ba,#ffd76c);border-radius:999px;padding:13px 18px;min-height:46px;box-shadow:0 10px 0 rgba(178,111,0,.28),0 15px 28px rgba(0,0,0,.17);font-weight:900;letter-spacing:-.01em;cursor:pointer}.btn:active{transform:translateY(4px);box-shadow:0 5px 0 rgba(178,111,0,.28),0 10px 18px rgba(0,0,0,.13)}.btn.secondary{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none}.btn.locked,.btn:disabled{opacity:.55;filter:grayscale(.25);cursor:not-allowed;box-shadow:none;transform:none!important}
+
+    .nav{position:absolute;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom));display:flex;justify-content:center;align-items:center;gap:10px;z-index:20;pointer-events:none}.nav button{pointer-events:auto;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.36);background:rgba(4,30,75,.36);color:#fff;font-size:22px;box-shadow:0 12px 26px rgba(0,0,0,.18);backdrop-filter:blur(10px)}.nav button:disabled{opacity:.35;cursor:not-allowed}.dots{display:flex;gap:5px;padding:9px 10px;border-radius:999px;background:rgba(3,24,58,.28);backdrop-filter:blur(8px);pointer-events:auto}.dot{width:8px;height:8px;border-radius:10px;border:0;padding:0;background:rgba(255,255,255,.35);transition:.3s}.dot.on{width:22px;background:#fff2a3}.dot.locked-dot{background:rgba(255,255,255,.18)}
+    .mute{position:absolute;top:calc(12px + env(safe-area-inset-top));right:12px;z-index:40;width:43px;height:43px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(2,28,60,.28);color:white;backdrop-filter:blur(9px)}
+
+    .sticker{position:absolute;z-index:1;filter:drop-shadow(0 18px 22px rgba(0,0,0,.16));pointer-events:none}.float{animation:float 3.5s ease-in-out infinite}.float2{animation:float 4.4s ease-in-out infinite .4s}@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-13px) rotate(2deg)}}
+    .bubble{position:absolute;bottom:-50px;width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.7);background:rgba(255,255,255,.18);animation:rise 8s linear infinite;z-index:1}@keyframes rise{to{transform:translateY(-110vh) translateX(35px);opacity:0}}.sparkle{position:absolute;z-index:1;font-size:18px;animation:twinkle 1.8s ease-in-out infinite;opacity:.82}@keyframes twinkle{50%{transform:scale(1.45) rotate(25deg);opacity:1}}
+    .toast{position:absolute;left:50%;top:calc(18px + env(safe-area-inset-top));transform:translateX(-50%) translateY(-30px);background:rgba(5,25,61,.8);color:white;border:1px solid rgba(255,255,255,.26);border-radius:999px;padding:10px 15px;z-index:100;opacity:0;transition:.3s;backdrop-filter:blur(8px);white-space:nowrap;box-shadow:0 14px 28px rgba(0,0,0,.18)}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .confetti{position:absolute;z-index:90;width:9px;height:14px;border-radius:3px;top:-20px;animation:fall 2.6s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+
+    .cover-art{position:relative;width:100%;flex:1;min-height:0;display:grid;place-items:center}.cover-art .main-mermaid{width:min(70%,430px);max-height:48vh;object-fit:contain;z-index:3;animation:float 3.2s ease-in-out infinite}.cover-art .cake{position:absolute;width:34%;max-width:210px;left:8%;bottom:0;z-index:4}.cover-art .baby{position:absolute;width:32%;max-width:210px;right:7%;bottom:0;z-index:4;transform:rotate(6deg)}.cover-art .coral{position:absolute;width:46%;max-width:360px;left:50%;top:1%;transform:translateX(-50%);opacity:.92;z-index:2}.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:rgba(255,255,255,.2);padding:8px 12px;border:1px solid rgba(255,255,255,.32);color:#fff;box-shadow:0 11px 25px rgba(0,0,0,.12)}
+
+    .story-stack{flex:1;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:14px;min-height:0;max-width:940px}.story-card{border-radius:26px;padding:18px;background:rgba(255,255,255,.19);border:1px solid rgba(255,255,255,.26);box-shadow:0 14px 24px rgba(0,0,0,.12);text-align:left;line-height:1.35;color:white;font-size:clamp(15px,1.6vw,18px)}.story-card b{color:#fff0a8}
+    .polaroid-wrap{position:relative;flex:1;min-height:350px;width:100%;display:grid;place-items:center}.polaroid{position:absolute;width:min(54%,460px);height:88%;max-height:540px;border-radius:30px;padding:13px 13px 42px;background:#fffdf4;box-shadow:0 22px 48px rgba(0,0,0,.25);transition:.45s;transform:scale(.88) rotate(var(--rot));opacity:.25}.polaroid img{width:100%;height:100%;object-fit:cover;border-radius:19px;display:block}.polaroid span{color:#174365;position:absolute;left:0;right:0;bottom:10px;font-weight:900;font-size:clamp(14px,1.5vw,18px)}.polaroid.active{opacity:1;transform:scale(1) rotate(var(--rot));z-index:6}
+    .screenshot-card{width:min(100%,620px);max-height:150px;border-radius:24px;overflow:hidden;background:#111821;border:1px solid rgba(255,255,255,.15);box-shadow:0 14px 30px rgba(0,0,0,.2)}.screenshot-card img{width:100%;max-height:150px;object-fit:contain;display:block}
+
+    .game-zone{position:relative;flex:1;width:100%;min-height:250px;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,rgba(4,162,213,.55),rgba(4,46,107,.62));border:1px solid rgba(255,255,255,.28);box-shadow:inset 0 0 42px rgba(255,255,255,.09)}.meter{width:100%;height:12px;background:rgba(255,255,255,.2);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.25)}.meter>i{display:block;height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#fff17a,#ff81c7,#7ae9ff);transition:.25s}.game-hint{margin:0;font-size:13px;color:#fff4c2;font-weight:900}
+    .rage-item{position:absolute;display:grid;place-items:center;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.2);border-radius:18px;min-width:52px;min-height:52px;font-weight:1000;color:#fff;box-shadow:0 10px 18px rgba(0,0,0,.2);touch-action:manipulation}.rage-item.emoji{font-size:32px;border-radius:50%}.rage-item.fake-abs{font-size:32px;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);box-shadow:0 10px 18px rgba(0,0,0,.2)}.rage-item.real-abs,.rage-item.workout-target{font-size:28px;background:linear-gradient(180deg,#fff,#f8ffac);color:#0b3a62;border:3px solid #fff17a;box-shadow:0 0 0 6px rgba(255,241,122,.18),0 15px 24px rgba(0,0,0,.28);animation:annoying 1.4s ease-in-out infinite}.rage-item.ghost{opacity:.88}.rage-item:active{transform:scale(.92)!important}@keyframes annoying{0%,100%{filter:drop-shadow(0 0 0 rgba(255,255,255,0));}50%{filter:drop-shadow(0 0 14px rgba(255,255,255,.88));}}
+    .shell{position:absolute;display:grid;place-items:center;width:56px;height:56px;font-size:34px;border-radius:18px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.18);box-shadow:0 12px 20px rgba(0,0,0,.2);touch-action:manipulation}.shell.correct-next{box-shadow:0 0 0 4px rgba(255,241,122,.18),0 12px 20px rgba(0,0,0,.2)}.mermaid-player{position:absolute;left:50%;top:50%;width:94px;transform:translate(-50%,-50%);pointer-events:none;filter:drop-shadow(0 16px 18px rgba(0,0,0,.23));animation:float 2.7s ease-in-out infinite}
+    .tooth{position:absolute;inset:10% 12% 8%;border-radius:42% 42% 38% 38%/32% 32% 58% 58%;background:linear-gradient(180deg,#fff,#f8f0dc);box-shadow:inset 0 -20px 36px rgba(91,159,210,.16),0 18px 35px rgba(0,0,0,.19)}.tooth::before{content:"Secret Covid Filling Mission";position:absolute;top:12px;left:50%;transform:translateX(-50%);color:#356c96;font-size:12px;font-weight:1000;white-space:nowrap}.plaque{position:absolute;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:radial-gradient(circle,#ffe573,#fa9962);color:#6e3b00;font-size:15px;font-weight:900;border:2px solid rgba(255,255,255,.7);box-shadow:0 6px 10px rgba(0,0,0,.18);touch-action:manipulation}.plaque.fake{background:radial-gradient(circle,#fff,#dff8ff);color:#9bc9dd}.brush{position:absolute;right:12px;bottom:12px;font-size:46px;transform:rotate(-28deg);filter:drop-shadow(0 10px 10px rgba(0,0,0,.2))}
+
+    .wish-box{width:min(100%,760px);min-height:86px;border:0;border-radius:26px;padding:18px;color:#11345e;background:#fff8f3;box-shadow:inset 0 3px 0 rgba(255,255,255,.6),0 15px 30px rgba(0,0,0,.12);resize:none;outline:none;user-select:text}.cake-scene{position:relative;flex:1;min-height:0;width:100%;display:grid;place-items:center;padding-top:14px}.birthday-cake{position:relative;width:min(88vw,420px);height:min(42vh,320px);display:grid;place-items:center;filter:drop-shadow(0 22px 30px rgba(0,0,0,.22))}.cake-glow{position:absolute;left:50%;top:7%;width:180px;height:180px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,240,140,.42),rgba(255,240,140,.12) 45%,transparent 72%);opacity:.95;pointer-events:none;transition:opacity .45s}.cake-plate{position:absolute;left:50%;bottom:18px;width:260px;height:24px;transform:translateX(-50%);border-radius:999px;background:linear-gradient(180deg,#d8f6ff,#a8def5);box-shadow:0 10px 0 rgba(19,83,126,.18)}.cake-layer{position:absolute;left:50%;transform:translateX(-50%);border-radius:26px}.cake-layer.bottom{bottom:44px;width:240px;height:92px;background:linear-gradient(180deg,#ffc5df,#ff8dc1)}.cake-layer.top{bottom:122px;width:180px;height:70px;background:linear-gradient(180deg,#b8f5ff,#7dd9ff)}.icing{position:absolute;left:50%;transform:translateX(-50%);border-radius:24px 24px 18px 18px;background:linear-gradient(180deg,#fffefc,#f8f1ff)}.icing.bottom{bottom:110px;width:240px;height:28px}.icing.top{bottom:182px;width:180px;height:24px}.candle-stick{position:absolute;left:50%;bottom:192px;width:22px;height:66px;transform:translateX(-50%);border-radius:14px;background:linear-gradient(180deg,#fff8f6,#ffb1d9);box-shadow:inset 0 0 0 3px rgba(255,255,255,.52)}.flame{position:absolute;left:50%;bottom:252px;width:34px;height:50px;transform:translateX(-50%) scale(.2);background:radial-gradient(circle at 48% 70%,#fff8ac 0 18%,#ffaf2e 42%,#ff4d75 72%,transparent 74%);border-radius:55%;filter:drop-shadow(0 0 17px #ffe15d);opacity:0}.flame.lit{opacity:1;animation:ignite .55s ease-out forwards,flicker .18s infinite alternate .55s}.flame.out{animation:none;opacity:0;transform:translateX(-50%) translateY(18px) scale(.15);transition:.7s}.smoke{position:absolute;left:50%;bottom:253px;width:20px;height:20px;transform:translateX(-50%);opacity:0;pointer-events:none}.smoke::before,.smoke::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.68)}.smoke::before{width:18px;height:18px;left:0;top:0}.smoke::after{width:14px;height:14px;left:12px;top:-8px}.smoke.show{animation:smokeRise 1s ease-out forwards}@keyframes ignite{0%{opacity:0;transform:translateX(-50%) translateY(16px) scale(.15)}70%{opacity:1;transform:translateX(-50%) translateY(-2px) scale(1.12)}100%{opacity:1;transform:translateX(-50%) scale(1)}}@keyframes flicker{from{transform:translateX(-50%) rotate(-5deg) scale(1)}to{transform:translateX(-50%) rotate(5deg) scale(1.08)}}@keyframes smokeRise{0%{opacity:.76;transform:translateX(-50%) translateY(0) scale(.7)}100%{opacity:0;transform:translateX(-50%) translateY(-55px) translateX(14px) scale(1.9)}}.cake-side-mermaid{position:absolute;right:8%;bottom:34px;width:min(26vw,112px);filter:drop-shadow(0 10px 14px rgba(0,0,0,.16));animation:float 3s ease-in-out infinite}
+    .final-photo{width:min(100%,280px);max-height:28vh;object-fit:contain;filter:drop-shadow(0 19px 28px rgba(0,0,0,.24));justify-self:center}.final-message{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:30px;padding:22px 24px;line-height:1.44;font-size:clamp(15px,1.55vw,18px);width:min(100%,780px);max-height:min(34vh,300px);overflow:auto;text-align:left;box-shadow:0 16px 30px rgba(0,0,0,.13)}.final-message p{margin:.2em 0 .8em}.final-message p:last-child{margin-bottom:0}.final-message::-webkit-scrollbar{width:10px}.final-message::-webkit-scrollbar-thumb{background:rgba(255,255,255,.34);border-radius:999px}.mini-note{color:#fff4c2;font-weight:900}
+
+    @media (min-width:820px){
+      .screen[data-name="Cover"] .inner{display:grid;grid-template-columns:minmax(330px,.9fr) minmax(360px,1.1fr);grid-template-rows:auto 1fr auto;column-gap:38px;text-align:left;align-items:center}.screen[data-name="Cover"] .topline{grid-column:1/-1}.screen[data-name="Cover"] .cover-art{grid-column:2;grid-row:2/4;align-self:stretch}.screen[data-name="Cover"] .btn-row{justify-content:flex-start}.screen[data-name="Abs"] .game-zone,.screen[data-name="Mermaid Hunt"] .game-zone,.screen[data-name="Dental Chaos"] .game-zone{max-width:920px}.screen[data-name="Final"] .inner{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);grid-template-rows:auto auto 1fr auto;column-gap:28px;align-items:center;text-align:left}.screen[data-name="Final"] .topline,.screen[data-name="Final"]>.page-card>.inner>div:nth-of-type(2),.screen[data-name="Final"] .mini-note,.screen[data-name="Final"] .btn-row{grid-column:1/-1;text-align:center;justify-self:center}.screen[data-name="Final"] .final-photo{grid-column:1;grid-row:3}.screen[data-name="Final"] .final-message{grid-column:2;grid-row:3;align-self:stretch}
+    }
+    @media (max-width:760px){
+      .screen{padding:12px 10px calc(70px + env(safe-area-inset-bottom))}.page-card{width:calc(100vw - 20px);height:calc(100dvh - 86px);border-radius:30px;padding:16px}.inner{gap:9px}.title{font-size:clamp(30px,9vw,48px)}.subtitle{font-size:clamp(14px,4.3vw,18px)}.story-stack{display:flex;flex-direction:column;gap:9px}.story-card{padding:11px;font-size:13px}.polaroid-wrap{min-height:0}.polaroid{width:76%;max-width:300px;height:72%;padding:10px 10px 34px}.screenshot-card{max-height:130px}.screenshot-card img{max-height:130px}.game-zone{min-height:190px}.cover-art .main-mermaid{width:min(89%,330px);max-height:43vh}.cover-art .cake{width:42%;max-width:170px;left:-3%;bottom:2%}.cover-art .baby{width:40%;max-width:160px;right:-4%;bottom:2%}.cover-art .coral{width:55%;max-width:230px}.btn{min-height:41px;padding:10px 14px}.nav button{width:42px;height:42px}.birthday-cake{width:min(92vw,320px);height:235px}.cake-plate{width:220px}.cake-layer.bottom,.icing.bottom{width:200px}.cake-layer.top,.icing.top{width:150px}.cake-side-mermaid{width:88px;right:2%;bottom:12px}.candle-stick{bottom:180px}.flame,.smoke{bottom:240px}.screen[data-name="Final"] .inner{display:flex;text-align:center}.final-message{padding:14px;font-size:14px;max-height:190px}.toast{max-width:92vw;white-space:normal;text-align:center}.plaque{width:28px;height:28px}.shell,.rage-item{min-width:46px;min-height:46px}.mermaid-player{width:72px}.tooth::before{font-size:10px}
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app" aria-live="polite">
+    <button class="mute" id="muteBtn" aria-label="Toggle birthday music">🔇</button>
+    <div class="toast" id="toast">Message</div>
+
+    <section class="screen active" data-name="Cover">
+      <div class="page-card">
+        <img class="sticker float2" style="width:82px;right:18px;top:66px" src="assets/mermaid.png" alt="mermaid sticker">
+        <img class="sticker float" style="width:100px;left:-13px;top:91px" src="assets/coral.png" alt="coral sticker">
+        <div class="inner">
+          <div class="topline"><span class="pill">birthday portal</span><span></span></div>
+          <div>
+            <p class="tag">🧜‍♀️ Ocean Birthday Girl</p>
+            <h1 class="title">Happy Birthday<br>Sanu the Mermaid</h1>
+            <p class="subtitle">The jolliest positivity queen I know 💖 </p>
+          </div>
+          <div class="cover-art">
+            <img class="coral" src="assets/coral.png" alt="coral">
+            <img class="main-mermaid" src="assets/cake_mermaid.png" alt="mermaid with cake">
+            <img class="cake float2" src="assets/baby_sanu.png" alt="baby Sanu chibi">
+            <img class="baby float" src="assets/mermaid.png" alt="mermaid">
+          </div>
+          <div>
+            <p class="subtitle">The most extrovert of extroverts!</p>
+            <div class="btn-row"><button class="btn" id="startBtn">Dive in🎵</button></div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Story">
+      <div class="page-card">
+        <img class="sticker float" style="width:92px;right:-12px;top:58px" src="assets/baby_sanu.png" alt="baby Sanu sticker">
+        <div class="inner">
+          <div class="topline"><span class="pill">chapter 1</span><span class="pill">2019 ish</span></div>
+          <div><h2 class="title">How it started</h2><p class="subtitle">Locum yapper nurse met bored at work nurse...then yapped whole day at work then to home and never stopped.</p></div>
+          <div class="story-stack">
+            <div class="story-card">You came to the work as an agency nurse and somehow became one of my closest people from basically day one.</div>
+            <div class="story-card">You were sooo <b>cheerful, yapper, funny, full of energy</b>, and impossible not to love.</div>
+            <div class="story-card">We did illegal stuff during covid era, “come here let me clean your teeth, take xrays and do tooth filling” mission. We survived. Icons only!!</div>
+            <div class="story-card">Now you are still the same sunshine girl with extra mermaid glow every year.</div>
+          </div>
+          <div class="btn-row"><button class="btn nextLocal">Next wave 🌊</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Gallery">
+      <div class="page-card">
+        <div class="inner">
+          <div class="topline"><span class="pill">photo tide</span><span class="pill" id="galleryCount">1 / 6</span></div>
+          <div><h2 class="title">Sanu eras</h2><p class="subtitle">Cute, beachy, jolly, beautiful, siren, baby-face, all of it.</p></div>
+          <div class="polaroid-wrap" id="gallery">
+            <div class="polaroid active" style="--rot:-3deg"><img src="assets/alley_sanu.jpeg" alt="Sanu"><span>main character</span></div>
+            <div class="polaroid" style="--rot:4deg"><img src="assets/paddle_sanu.png" alt="Sanu paddle boarding"><span>its real! actual mermaid evidence with legs</span></div>
+            <div class="polaroid" style="--rot:-2deg"><img src="assets/desert_sanu.png" alt="Sanu"><span>desert but still ocean energy</span></div>
+            <div class="polaroid" style="--rot:3deg"><img src="assets/sanu_flower_real.png" alt="Sanu with flower"><span>she is just a soft flower fairy girl</span></div>
+            <div class="polaroid" style="--rot:-5deg"><img src="assets/childhood.jpeg" alt="Sanu childhood"><span>legend since childhood. Stole this from Rosni's post lol</span></div>
+            <div class="polaroid" style="--rot:2deg"><img src="assets/sanu_nunu.png" alt="Sanu and Nunu cartoon"><span>us, obviously ultimate team</span></div>
+          </div>
+          <div class="btn-row"><button class="btn secondary" id="prevPhoto">← photo</button><button class="btn" id="nextPhoto">next photo →</button><button class="btn nextLocal"> Dont Tap 😈</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Abs">
+      <div class="page-card">
+        <div class="inner">
+          <div class="topline"><span class="pill">Body Goal game 1</span><span class="pill" id="snackScore">0 / 3</span></div>
+          <div><h2 class="title">Abs vs food</h2><p class="subtitle">Girl says lets make abs and body then posts 10 stories of her eating food 😭</p></div>
+          <div class="screenshot-card"><img src="assets/abs_msg.jpeg" alt="abs message"></div>
+          <p class="game-hint">Choose wisely 😈 </p>
+          <div class="meter"><i id="snackMeter"></i></div>
+          <div class="game-zone" id="snackGame"></div>
+          <div class="btn-row"><button class="btn secondary" id="resetSnacks">reset game</button><button class="btn nextLocal gameNext locked" id="absNext" disabled>Locked: beat the snacks first 🔒</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Mermaid Hunt">
+      <div class="page-card">
+        <div class="inner">
+          <div class="topline"><span class="pill">Mermaid Hunt game 2</span><span class="pill" id="shellScore">0 / 6</span></div>
+          <div><h2 class="title">Mermaid proof</h2><p class="subtitle">exact order 🐚 → ⭐ → 💎 → 🌸 → 🫧 → 🦪 Wrong tap is full reset</p></div>
+          <div class="screenshot-card"><img src="assets/mermaid_msg.jpeg" alt="mermaid message"></div>
+          <p class="game-hint" id="shellHint">Next item: 🐚</p>
+          <div class="meter"><i id="shellMeter"></i></div>
+          <div class="game-zone" id="shellGame"><img class="mermaid-player" src="assets/mermaid.png" alt="mermaid"></div>
+          <div class="btn-row"><button class="btn secondary" id="resetShells">reset mermaid trial</button><button class="btn nextLocal gameNext locked" id="shellNext" disabled>Locked: mermaid trial first 🔒</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Dental Chaos">
+      <div class="page-card">
+        <div class="inner">
+          <div class="topline"><span class="pill">illegal dentistry game 3</span><span class="pill" id="toothScore">0 / 9</span></div>
+          <div><h2 class="title">Secret tooth rescue</h2><p class="subtitle">Finally legally allowed to clean, lets see your skills lol</p></div>
+   
+          <div class="meter"><i id="toothMeter"></i></div>
+          <div class="game-zone" id="toothGame"><div class="tooth" id="tooth"></div><div class="brush">🪥</div></div>
+          <div class="btn-row"><button class="btn secondary" id="resetTooth">reset tooth trap</button><button class="btn nextLocal gameNext locked" id="toothNext" disabled>Locked: clean the tooth first 🔒</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Wish">
+      <div class="page-card">
+        <img class="sticker float" style="width:112px;left:-24px;bottom:90px" src="assets/coral.png" alt="coral">
+        <div class="inner">
+          <div class="topline"><span class="pill">birthday ritual</span><span class="pill">wish + candle</span></div>
+          <div><h2 class="title">Make a wish</h2><p class="subtitle">Write a wish, then blow the candle. The mermaid council is listening.</p></div>
+          <textarea id="wishText" class="wish-box" maxlength="120" placeholder="I wish for..."></textarea>
+          <div class="cake-scene">
+            <div class="birthday-cake" aria-label="birthday cake with lit candle">
+              <div class="cake-glow" id="cakeGlow" aria-hidden="true"></div>
+              <div class="cake-plate"></div><div class="cake-layer bottom"></div><div class="icing bottom"></div><div class="cake-layer top"></div><div class="icing top"></div>
+              <div class="candle-stick"></div><span class="flame lit" id="flame" aria-hidden="true"></span><span class="smoke" id="smoke" aria-hidden="true"></span>
+              <img class="cake-side-mermaid" src="assets/mermaid.png" alt="cute mermaid sticker">
+            </div>
+          </div>
+          <div class="btn-row"><button class="btn secondary" id="micBtn">blow near phone 🎤
+          <p class="small" id="wishReveal">Candle lit and waiting...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-name="Final">
+      <div class="page-card">
+        <img class="sticker float2" style="width:92px;right:-12px;top:62px" src="assets/mermaid.png" alt="mermaid">
+        <div class="inner">
+          <div class="topline"><span class="pill">final wave</span><span class="pill">for Sanu</span></div>
+          <div><h2 class="title">Dear Sanu</h2><p class="subtitle">for the jolliest positivity queen I know</p></div>
+          <img class="final-photo" src="assets/sanu_nunu.png" alt="cute cartoon of two friends">
+          <div class="final-message">
+            <p>Happy birthday to my beautiful mermaid girl. Thank you for being so full of life, so funny, so yapper yapper yapper, so positive. Girl almost botched my jaw surgery by making me laugh so hard when I was in pain.</p>
+            <p>I’m so proud of everything you have becomed and becoming, but even more than that, I’m grateful for who you have always been to me, a safe, silly, sunshine person who makes life feel lighter and funnier.</p>
+            <p>May this year bring you soft love, loud laughs, beach days, ocean air, glowing confidence, cute outfits, good food and yeaaa maybe abs like you always say you will get in 3 months 💖<br>I’m grateful we met that day</p>
+          </div>
+          <p class="mini-note"> Loveeeee youuuuu 🧜‍♀️🌊</p>
+          <div class="btn-row"><button class="btn secondary" id="restart">restart again?</button></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="nav" aria-hidden="false"><button id="backBtn" aria-label="Previous page">‹</button><div class="dots" id="dots"></div><button id="forwardBtn" aria-label="Next page">›</button></div>
+  </main>
+
+  <script>
+    const screens=[...document.querySelectorAll('.screen')];
+    const dots=document.getElementById('dots');
+    const toast=document.getElementById('toast');
+    const backBtn=document.getElementById('backBtn');
+    const forwardBtn=document.getElementById('forwardBtn');
+    const progress={abs:false,shell:false,tooth:false};
+    let page=0;
+
+    function setVh(){document.documentElement.style.setProperty('--vh',`${window.innerHeight*0.01}px`)}
+    setVh(); addEventListener('resize',setVh);
+
+    const indexByName=Object.fromEntries(screens.map((s,i)=>[s.dataset.name,i]));
+    const absIndex=indexByName.Abs;
+    const shellIndex=indexByName['Mermaid Hunt'];
+    const toothIndex=indexByName['Dental Chaos'];
+    const wishIndex=indexByName.Wish;
+
+    screens.forEach((_,i)=>{
+      const d=document.createElement('button');
+      d.className='dot'+(i===0?' on':'');
+      d.type='button';
+      d.ariaLabel=`Go to page ${i+1}`;
+      d.addEventListener('click',()=>go(i));
+      dots.appendChild(d);
+    });
+
+    function showToast(msg){
+      toast.textContent=msg;
+      toast.classList.add('show');
+      clearTimeout(showToast.t);
+      showToast.t=setTimeout(()=>toast.classList.remove('show'),1850);
+    }
+
+    function blockingInfo(target){
+      if(target>absIndex && !progress.abs) return {index:absIndex,msg:'No skipping 😭 beat Abs vs Snacks first.'};
+      if(target>shellIndex && !progress.shell) return {index:shellIndex,msg:'Mermaid council says no. Finish the shell order.'};
+      if(target>toothIndex && !progress.tooth) return {index:toothIndex,msg:'Tooth is still dirty. Clean the real plaque first.'};
+      return null;
+    }
+    function go(n){
+      const wanted=Math.max(0,Math.min(screens.length-1,n));
+      const block=blockingInfo(wanted);
+      if(block){
+        page=block.index;
+        showToast(block.msg);
+      }else{
+        page=wanted;
+      }
+      screens.forEach((s,i)=>{s.classList.toggle('active',i===page);s.classList.toggle('prev',i<page)});
+      updateNav();
+      if(page===wishIndex) resetWishScene();
+      sparkleBurst(10);
+    }
+    function updateNav(){
+      [...dots.children].forEach((d,i)=>{
+        d.classList.toggle('on',i===page);
+        d.classList.toggle('locked-dot',!!blockingInfo(i));
+      });
+      backBtn.disabled=page===0;
+      forwardBtn.disabled=page===screens.length-1 || (!!blockingInfo(page+1) && blockingInfo(page+1).index===page);
+    }
+    function markSolved(key,buttonId,label){
+      progress[key]=true;
+      const btn=document.getElementById(buttonId);
+      btn.disabled=false; btn.classList.remove('locked'); btn.textContent=label;
+      updateNav();
+    }
+    function markUnsolved(key,buttonId,label){
+      progress[key]=false;
+      const btn=document.getElementById(buttonId);
+      btn.disabled=true; btn.classList.add('locked'); btn.textContent=label;
+      updateNav();
+    }
+
+    backBtn.onclick=()=>go(page-1);
+    forwardBtn.onclick=()=>{
+      if(forwardBtn.disabled){
+        const block=blockingInfo(page+1);
+        showToast(block?.msg || 'Not yet 😈');
+        return;
+      }
+      go(page+1);
+    };
+    document.querySelectorAll('.nextLocal').forEach(b=>b.addEventListener('click',()=>{
+      if(b.disabled){showToast('Locked. Solve this rage game first 😭');return;}
+      go(page+1);
+    }));
+    document.getElementById('restart').onclick=()=>go(0);
+
+    const app=document.getElementById('app');
+    for(let i=0;i<20;i++){
+      const b=document.createElement('i'); b.className='bubble';
+      b.style.left=Math.random()*100+'vw'; b.style.width=b.style.height=(10+Math.random()*28)+'px';
+      b.style.animationDuration=(6+Math.random()*8)+'s'; b.style.animationDelay=(-Math.random()*8)+'s';
+      app.appendChild(b);
+    }
+    for(let i=0;i<16;i++){
+      const s=document.createElement('i'); s.className='sparkle'; s.textContent=['✨','💖','🫧','⭐'][i%4];
+      s.style.left=Math.random()*92+'vw'; s.style.top=Math.random()*90+'vh'; s.style.animationDelay=(-Math.random()*2)+'s';
+      app.appendChild(s);
+    }
+    function confetti(amount=70){
+      const colors=['#ff70bc','#fff17a','#66edff','#9a6dff','#ff9f6e','#ffffff'];
+      for(let i=0;i<amount;i++){
+        const c=document.createElement('i'); c.className='confetti';
+        c.style.left=Math.random()*100+'vw'; c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.animationDelay=Math.random()*0.6+'s'; c.style.transform=`rotate(${Math.random()*360}deg)`;
+        app.appendChild(c); setTimeout(()=>c.remove(),3400);
+      }
+    }
+    function sparkleBurst(amount=8){
+      for(let i=0;i<amount;i++){
+        const s=document.createElement('i'); s.className='confetti'; s.textContent=['✨','🫧','💗','🌊'][i%4];
+        s.style.background='transparent'; s.style.width='auto'; s.style.height='auto'; s.style.fontSize=(16+Math.random()*15)+'px';
+        s.style.left=(20+Math.random()*60)+'vw'; s.style.animationDuration=(1.2+Math.random()*.9)+'s';
+        app.appendChild(s); setTimeout(()=>s.remove(),2400);
+      }
+    }
+
+    // Softer birthday music generated in-browser.
+    let audioCtx,musicTimer,musicOn=false;
+    const muteBtn=document.getElementById('muteBtn');
+    const melody=[['G4',.48],['G4',.26],['A4',.72],['G4',.72],['C5',.72],['B4',1.15],['G4',.48],['G4',.26],['A4',.72],['G4',.72],['D5',.72],['C5',1.15],['G4',.48],['G4',.26],['G5',.72],['E5',.72],['C5',.72],['B4',.72],['A4',1.2],['F5',.48],['F5',.26],['E5',.72],['C5',.72],['D5',.72],['C5',1.35]];
+    const padChords=[[['C4','G4','B4'],4.3],[['C4','G4','A4'],4.3],[['F4','A4','C5'],4.3],[['G4','B4','D5'],4.8]];
+    const freq=n=>{const notes={C:0,'C#':1,D:2,'D#':3,E:4,F:5,'F#':6,G:7,'G#':8,A:9,'A#':10,B:11};const m=n.match(/^([A-G]#?)(\d)$/);const midi=12+(+m[2])*12+notes[m[1]];return 440*Math.pow(2,(midi-69)/12)};
+    function playTone(note,dur,when,type='sine',volume=.034){
+      const osc=audioCtx.createOscillator(),gain=audioCtx.createGain(),filter=audioCtx.createBiquadFilter();
+      osc.type=type; osc.frequency.value=freq(note); filter.type='lowpass'; filter.frequency.value=1900;
+      gain.gain.setValueAtTime(.0001,when); gain.gain.exponentialRampToValueAtTime(volume,when+.05); gain.gain.exponentialRampToValueAtTime(Math.max(.0001,volume*.62),when+dur*.5); gain.gain.exponentialRampToValueAtTime(.0001,when+dur);
+      osc.connect(filter).connect(gain).connect(audioCtx.destination); osc.start(when); osc.stop(when+dur+.02);
+    }
+    function scheduleMelody(){
+      if(!musicOn||!audioCtx)return;
+      let t=audioCtx.currentTime+.05;
+      melody.forEach(([note,d])=>{playTone(note,d,t,'sine',.032); if(d>.9)playTone(note,d*.9,t+.03,'triangle',.012); t+=d});
+      let padT=audioCtx.currentTime+.05;
+      padChords.forEach(([notes,d])=>{notes.forEach((note,idx)=>playTone(note,d,padT+idx*.02,'triangle',.015)); padT+=d});
+      musicTimer=setTimeout(scheduleMelody,(Math.max(t,padT)-audioCtx.currentTime+.65)*1000);
+    }
+    async function startMusic(){
+      if(!audioCtx) audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+      await audioCtx.resume(); musicOn=true; muteBtn.textContent='🔊'; clearTimeout(musicTimer); scheduleMelody(); showToast('Soothing birthday sound on loop 🎵');
+    }
+    function stopMusic(){musicOn=false;clearTimeout(musicTimer);muteBtn.textContent='🔇';showToast('Music paused')}
+    muteBtn.onclick=()=>musicOn?stopMusic():startMusic();
+    document.getElementById('startBtn').onclick=async()=>{await startMusic();confetti(80);go(1)};
+
+    // Gallery
+    const photos=[...document.querySelectorAll('.polaroid')]; let photo=0;
+    function setPhoto(n){photo=(n+photos.length)%photos.length; photos.forEach((p,i)=>p.classList.toggle('active',i===photo)); document.getElementById('galleryCount').textContent=(photo+1)+' / '+photos.length}
+    document.getElementById('nextPhoto').onclick=()=>setPhoto(photo+1);
+    document.getElementById('prevPhoto').onclick=()=>setPhoto(photo-1);
+
+    function put(el,x,y){el.style.left=x+'%'; el.style.top=y+'%'}
+    function randomPut(el){put(el,5+Math.random()*82,9+Math.random()*72)}
+    function shuffle(arr){return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1])}
+
+    // Rage game 1: Abs vs snacks
+    const foodTargets=['🍜','🍰','🍟','🍕','🍩','🥐','🍛','🍫','🍔','🍚','🍱','🧁','🍣','🌮'];
+    const fakeWorkoutEmojis=['🏋️','🏃','🤸','🚴','🏊'];
+    let absHits=0; const absNeeded=foodTargets.length;
+    function scrambleAbsBoard(){
+      document.querySelectorAll('#snackGame .rage-item').forEach(el=>{ if(!el.dataset.hit) randomPut(el); });
+    }
+    function resetAbsProgress(msg){
+      if(progress.abs) return;
+      absHits=0; updateAbs();
+      document.querySelectorAll('#snackGame .food-target').forEach(el=>{ el.dataset.hit=''; el.style.opacity=1; el.style.transform='scale(1)'; });
+      scrambleAbsBoard();
+      if(msg) showToast(msg);
+    }
+    function updateAbs(){document.getElementById('snackScore').textContent=absHits+' / '+absNeeded; document.getElementById('snackMeter').style.width=(absHits/absNeeded*100)+'%'}
+    function makeSnacks(){
+      const zone=document.getElementById('snackGame'); zone.innerHTML=''; absHits=0; markUnsolved('abs','absNext','Locked: beat the snacks first 🔒'); updateAbs();
+      foodTargets.forEach((emo,idx)=>{
+        const el=document.createElement('button'); el.className='rage-item emoji food-target'; el.type='button'; el.textContent=emo; el.dataset.idx=idx; randomPut(el); el.style.animationDelay=(-Math.random()*1.2)+'s';
+        el.addEventListener('mouseenter',()=>{if(!progress.abs && !el.dataset.hit && Math.random()<.18) randomPut(el)});
+        el.onclick=()=>{
+          if(progress.abs || el.dataset.hit) return;
+          el.dataset.hit='1';
+          el.style.opacity=.42;
+          el.style.transform='scale(.88)';
+          absHits++; updateAbs();
+          if(absHits>=absNeeded){ markSolved('abs','absNext','Solved — next mermaid trap 🧜‍♀️'); confetti(85); showToast('Exactly. Food was the real abs all along.'); }
+          else { scrambleAbsBoard(); showToast(`${absHits}/${absNeeded}. Keep choosing wisely.`); }
+        };
+        zone.appendChild(el);
+      });
+      fakeWorkoutEmojis.forEach(emo=>{
+        const fake=document.createElement('button'); fake.className='rage-item emoji fake-abs'; fake.type='button'; fake.textContent=emo; randomPut(fake);
+        fake.addEventListener('mouseenter',()=>{if(!progress.abs && Math.random()<.35) randomPut(fake)});
+        fake.onclick=()=>resetAbsProgress(['Fake abs detected. Back to 0 😭','Workout bait. Start all over 💀','Gym lie clicked. Food progress gone.'][Math.floor(Math.random()*3)]);
+        zone.appendChild(fake);
+      });
+    }
+    document.getElementById('resetSnacks').onclick=makeSnacks;
+
+    // Rage game 2: Mermaid order
+    const shellOrder=['🐚','⭐','💎','🌸','🫧','🦪'];
+    const shellDecoys=['🐠','🪸','🎂','💙','🐬','🧜‍♀️'];
+    let shellStep=0;
+    function updateShell(){
+      document.getElementById('shellScore').textContent=shellStep+' / '+shellOrder.length;
+      document.getElementById('shellMeter').style.width=(shellStep/shellOrder.length*100)+'%';
+      document.getElementById('shellHint').textContent=shellStep<shellOrder.length?'Next item: '+shellOrder[shellStep]:'Mermaid proof accepted';
+    }
+    function resetShellProgress(msg){
+      if(progress.shell) return;
+      shellStep=0; updateShell(); showToast(msg||'Wrong ocean object. Mermaid trial reset 😭');
+      document.querySelectorAll('#shellGame .shell').forEach(b=>{b.dataset.gone=''; b.style.opacity=1; b.style.transform='scale(1) rotate(0deg)'; randomPut(b)});
+    }
+    function makeShells(){
+      const zone=document.getElementById('shellGame'); zone.querySelectorAll('.shell').forEach(e=>e.remove()); shellStep=0; markUnsolved('shell','shellNext','Locked: mermaid trial first 🔒'); updateShell();
+      const items=shuffle([...shellOrder.map((emo,i)=>({emo,order:i,trap:false})),...shellDecoys.map(emo=>({emo,order:-1,trap:true}))]);
+      items.forEach(item=>{
+        const el=document.createElement('button'); el.className='shell'; el.type='button'; el.textContent=item.emo; randomPut(el);
+        el.onclick=()=>{
+          if(progress.shell||el.dataset.gone) return;
+          if(item.trap || item.order!==shellStep){ resetShellProgress('Wrong. The ocean took everything back 😭'); return; }
+          el.dataset.gone='1'; el.style.opacity=0; el.style.transform='scale(2) rotate(30deg)'; shellStep++; updateShell();
+          if(shellStep===shellOrder.length){ markSolved('shell','shellNext','Solved — tooth trap unlocked 🦷'); confetti(85); showToast('Mermaid proof accepted 🧜‍♀️'); }
+          else showToast('Correct. Next: '+shellOrder[shellStep]);
+        };
+        zone.appendChild(el);
+      });
+    }
+    document.getElementById('resetShells').onclick=makeShells;
+
+    // Rage game 3: tooth trap
+    let toothFound=0; const toothTotal=9;
+    function updateTooth(){document.getElementById('toothScore').textContent=toothFound+' / '+toothTotal; document.getElementById('toothMeter').style.width=(toothFound/toothTotal*100)+'%'}
+    function makePlaque(){
+      const tooth=document.getElementById('tooth'); tooth.querySelectorAll('.plaque').forEach(e=>e.remove()); toothFound=0; markUnsolved('tooth','toothNext','Locked: clean the tooth first 🔒'); updateTooth();
+      const spots=[[20,33],[46,26],[70,36],[28,55],[55,52],[75,61],[39,72],[61,77],[18,71]];
+      const fakeSpots=[[12,44],[82,31],[30,25],[48,66],[70,80],[86,69],[35,41],[78,48]];
+      spots.forEach(xy=>{
+        const p=document.createElement('button'); p.className='plaque'; p.type='button'; p.textContent='✦'; put(p,xy[0],xy[1]);
+        p.onclick=ev=>{ev.stopPropagation(); if(progress.tooth||p.dataset.gone) return; p.dataset.gone='1'; p.style.opacity=0; p.style.transform='scale(0)'; toothFound++; updateTooth(); if(toothFound===toothTotal){markSolved('tooth','toothNext','Solved — make a wish 🎂'); confetti(85); showToast('Tooth rescued. Nobody saw the secret mission.');}};
+        tooth.appendChild(p);
+      });
+      fakeSpots.forEach((xy,i)=>{
+        const p=document.createElement('button'); p.className='plaque fake'; p.type='button'; p.textContent='✧'; put(p,xy[0],xy[1]); p.style.transform=`scale(${i%2?.82:.98})`;
+        p.onclick=ev=>{ev.stopPropagation(); if(progress.tooth)return; showToast('Fake sparkle. Tooth got dirty again 😭'); makePlaque();};
+        tooth.appendChild(p);
+      });
+    }
+    document.getElementById('resetTooth').onclick=makePlaque;
+
+    // Wish + candle
+    let blown=false;
+    function resetWishScene(){
+      blown=false;
+      const flame=document.getElementById('flame'),smoke=document.getElementById('smoke'),glow=document.getElementById('cakeGlow');
+      flame.classList.remove('out'); flame.classList.remove('lit'); smoke.classList.remove('show'); glow.style.opacity='.95';
+      document.getElementById('wishReveal').textContent='Candle lit and waiting...';
+      setTimeout(()=>flame.classList.add('lit'),120);
+    }
+    function blowCandle(){
+      if(blown)return; blown=true;
+      const flame=document.getElementById('flame'),smoke=document.getElementById('smoke'),glow=document.getElementById('cakeGlow');
+      flame.classList.remove('lit'); flame.classList.add('out'); smoke.classList.add('show'); glow.style.opacity='.18';
+      const wish=(document.getElementById('wishText').value||'your secret birthday wish').trim();
+      document.getElementById('wishReveal').innerHTML=`Wish sent to the ocean: <b>${escapeHtml(wish)}</b> 🫧`;
+      confetti(130); showToast('Wish accepted by the mermaid council'); setTimeout(()=>go(page+1),2200);
+    }
+    function escapeHtml(str){return str.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+    document.getElementById('tapBlow').onclick=blowCandle;
+    document.getElementById('flame').onclick=blowCandle;
+    document.getElementById('micBtn').onclick=async()=>{
+      try{
+        showToast('Listening for candle blow...');
+        const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+        const ctx=new(window.AudioContext||window.webkitAudioContext)(),src=ctx.createMediaStreamSource(stream),analyser=ctx.createAnalyser();
+        analyser.fftSize=512; src.connect(analyser); const data=new Uint8Array(analyser.frequencyBinCount); let started=performance.now();
+        const check=()=>{analyser.getByteFrequencyData(data);let avg=data.reduce((a,b)=>a+b,0)/data.length;if(avg>42){stream.getTracks().forEach(t=>t.stop());ctx.close();blowCandle();return}if(performance.now()-started>9000){stream.getTracks().forEach(t=>t.stop());ctx.close();showToast('Could not hear it — tap candle instead ✨');return}requestAnimationFrame(check)};
+        check();
+      }catch(e){showToast('Mic blocked — tap candle instead ✨')}
+    };
+
+    addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(page+1); if(e.key==='ArrowLeft')go(page-1)});
+
+    makeSnacks(); makeShells(); makePlaque(); go(0);
+  </script>
+</body>
+</html>
