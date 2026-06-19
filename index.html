@@ -28,7 +28,7 @@
     .title{margin:0;font-size:clamp(44px,6.3vw,92px);line-height:.9;text-shadow:0 7px 22px rgba(3,27,69,.34);letter-spacing:-.055em}.subtitle{margin:0;font-size:clamp(16px,2vw,24px);line-height:1.3;color:#fff9d8;text-shadow:0 4px 13px rgba(5,30,70,.3)}.small{font-size:13px;line-height:1.3;color:rgba(255,255,255,.86)}
     .btn-row{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;width:100%}.btn{border:0;color:#07365d;background:linear-gradient(180deg,#fff9ba,#ffd76c);border-radius:999px;padding:13px 18px;min-height:46px;box-shadow:0 10px 0 rgba(178,111,0,.28),0 15px 28px rgba(0,0,0,.17);font-weight:900;letter-spacing:-.01em;cursor:pointer}.btn:active{transform:translateY(4px);box-shadow:0 5px 0 rgba(178,111,0,.28),0 10px 18px rgba(0,0,0,.13)}.btn.secondary{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none}.btn.locked,.btn:disabled{opacity:.55;filter:grayscale(.25);cursor:not-allowed;box-shadow:none;transform:none!important}
 
-    .nav{position:absolute;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom));display:flex;justify-content:center;align-items:center;gap:10px;z-index:20;pointer-events:none}.nav button{pointer-events:auto;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.36);background:rgba(4,30,75,.36);color:#fff;font-size:22px;box-shadow:0 12px 26px rgba(0,0,0,.18);backdrop-filter:blur(10px)}.nav button:disabled{opacity:.35;cursor:not-allowed}.dots{display:flex;gap:5px;padding:9px 10px;border-radius:999px;background:rgba(3,24,58,.28);backdrop-filter:blur(8px);pointer-events:auto}.dot{width:8px;height:8px;border-radius:10px;border:0;padding:0;background:rgba(255,255,255,.35);transition:.3s}.dot.on{width:22px;background:#fff2a3}.dot.locked-dot{background:rgba(255,255,255,.18)}
+    .nav{position:absolute;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom));display:flex;justify-content:center;align-items:center;gap:0;z-index:20;pointer-events:none}.dots{display:flex;gap:5px;padding:9px 10px;border-radius:999px;background:rgba(3,24,58,.28);backdrop-filter:blur(8px);pointer-events:auto}.dot{width:8px;height:8px;border-radius:10px;border:0;padding:0;background:rgba(255,255,255,.35);transition:.3s}.dot.on{width:22px;background:#fff2a3}.dot.locked-dot{background:rgba(255,255,255,.18)}
     .mute{position:absolute;top:calc(12px + env(safe-area-inset-top));right:12px;z-index:40;width:43px;height:43px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(2,28,60,.28);color:white;backdrop-filter:blur(9px)}
 
     .sticker{position:absolute;z-index:1;filter:drop-shadow(0 18px 22px rgba(0,0,0,.16));pointer-events:none}.float{animation:float 3.5s ease-in-out infinite}.float2{animation:float 4.4s ease-in-out infinite .4s}@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-13px) rotate(2deg)}}
@@ -54,7 +54,7 @@
       .screen[data-name="Cover"] .inner{display:grid;grid-template-columns:minmax(330px,.9fr) minmax(360px,1.1fr);grid-template-rows:auto 1fr auto;column-gap:38px;text-align:left;align-items:center}.screen[data-name="Cover"] .topline{grid-column:1/-1}.screen[data-name="Cover"] .cover-art{grid-column:2;grid-row:2/4;align-self:stretch}.screen[data-name="Cover"] .btn-row{justify-content:flex-start}.screen[data-name="Abs"] .game-zone,.screen[data-name="Mermaid Hunt"] .game-zone,.screen[data-name="Dental Chaos"] .game-zone{max-width:920px}.screen[data-name="Final"] .inner{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);grid-template-rows:auto auto 1fr auto;column-gap:28px;align-items:center;text-align:left}.screen[data-name="Final"] .topline,.screen[data-name="Final"]>.page-card>.inner>div:nth-of-type(2),.screen[data-name="Final"] .mini-note,.screen[data-name="Final"] .btn-row{grid-column:1/-1;text-align:center;justify-self:center}.screen[data-name="Final"] .final-photo{grid-column:1;grid-row:3}.screen[data-name="Final"] .final-message{grid-column:2;grid-row:3;align-self:stretch}
     }
     @media (max-width:760px){
-      .screen{padding:12px 10px calc(70px + env(safe-area-inset-bottom))}.page-card{width:calc(100vw - 20px);height:calc(100dvh - 86px);border-radius:30px;padding:16px}.inner{gap:9px}.title{font-size:clamp(30px,9vw,48px)}.subtitle{font-size:clamp(14px,4.3vw,18px)}.story-stack{display:flex;flex-direction:column;gap:9px}.story-card{padding:11px;font-size:13px}.polaroid-wrap{min-height:0}.polaroid{width:76%;max-width:300px;height:72%;padding:10px 10px 34px}.screenshot-card{max-height:130px}.screenshot-card img{max-height:130px}.game-zone{min-height:190px}.cover-art .main-mermaid{width:min(89%,330px);max-height:43vh}.cover-art .cake{width:42%;max-width:170px;left:-3%;bottom:2%}.cover-art .baby{width:40%;max-width:160px;right:-4%;bottom:2%}.cover-art .coral{width:55%;max-width:230px}.btn{min-height:41px;padding:10px 14px}.nav button{width:42px;height:42px}.birthday-cake{width:min(92vw,320px);height:235px}.cake-plate{width:220px}.cake-layer.bottom,.icing.bottom{width:200px}.cake-layer.top,.icing.top{width:150px}.cake-side-mermaid{width:88px;right:2%;bottom:12px}.candle-stick{bottom:180px}.flame,.smoke{bottom:240px}.screen[data-name="Final"] .inner{display:flex;text-align:center}.final-message{padding:14px;font-size:14px;max-height:190px}.toast{max-width:92vw;white-space:normal;text-align:center}.plaque{width:28px;height:28px}.shell,.rage-item{min-width:46px;min-height:46px}.mermaid-player{width:72px}.tooth::before{font-size:10px}
+      .screen{padding:12px 10px calc(70px + env(safe-area-inset-bottom))}.page-card{width:calc(100vw - 20px);height:calc(100dvh - 86px);border-radius:30px;padding:16px}.inner{gap:9px}.title{font-size:clamp(30px,9vw,48px)}.subtitle{font-size:clamp(14px,4.3vw,18px)}.story-stack{display:flex;flex-direction:column;gap:9px}.story-card{padding:11px;font-size:13px}.polaroid-wrap{min-height:0}.polaroid{width:76%;max-width:300px;height:72%;padding:10px 10px 34px}.screenshot-card{max-height:130px}.screenshot-card img{max-height:130px}.game-zone{min-height:190px}.cover-art .main-mermaid{width:min(89%,330px);max-height:43vh}.cover-art .cake{width:42%;max-width:170px;left:-3%;bottom:2%}.cover-art .baby{width:40%;max-width:160px;right:-4%;bottom:2%}.cover-art .coral{width:55%;max-width:230px}.btn{min-height:41px;padding:10px 14px}.birthday-cake{width:min(92vw,320px);height:235px}.cake-plate{width:220px}.cake-layer.bottom,.icing.bottom{width:200px}.cake-layer.top,.icing.top{width:150px}.cake-side-mermaid{width:88px;right:2%;bottom:12px}.candle-stick{bottom:180px}.flame,.smoke{bottom:240px}.screen[data-name="Final"] .inner{display:flex;text-align:center}.final-message{padding:14px;font-size:14px;max-height:190px}.toast{max-width:92vw;white-space:normal;text-align:center}.plaque{width:28px;height:28px}.shell,.rage-item{min-width:46px;min-height:46px}.mermaid-player{width:72px}.tooth::before{font-size:10px}
     }
   </style>
 </head>
@@ -133,7 +133,7 @@
           <p class="game-hint">Choose wisely 😈 </p>
           <div class="meter"><i id="snackMeter"></i></div>
           <div class="game-zone" id="snackGame"></div>
-          <div class="btn-row"><button class="btn secondary" id="resetSnacks">reset game</button><button class="btn nextLocal gameNext locked" id="absNext" disabled>Locked: beat the snacks first 🔒</button></div>
+          <div class="btn-row"><button class="btn secondary" id="resetSnacks">start game</button><button class="btn nextLocal gameNext locked" id="absNext" disabled>Locked: beat the snacks first 🔒</button></div>
         </div>
       </div>
     </section>
@@ -147,7 +147,7 @@
           <p class="game-hint" id="shellHint">Next item: 🐚</p>
           <div class="meter"><i id="shellMeter"></i></div>
           <div class="game-zone" id="shellGame"><img class="mermaid-player" src="assets/mermaid.png" alt="mermaid"></div>
-          <div class="btn-row"><button class="btn secondary" id="resetShells">reset mermaid trial</button><button class="btn nextLocal gameNext locked" id="shellNext" disabled>Locked: mermaid trial first 🔒</button></div>
+          <div class="btn-row"><button class="btn secondary" id="resetShells">start mermaid trial</button><button class="btn nextLocal gameNext locked" id="shellNext" disabled>Locked: mermaid trial first 🔒</button></div>
         </div>
       </div>
     </section>
@@ -160,7 +160,7 @@
    
           <div class="meter"><i id="toothMeter"></i></div>
           <div class="game-zone" id="toothGame"><div class="tooth" id="tooth"></div><div class="brush">🪥</div></div>
-          <div class="btn-row"><button class="btn secondary" id="resetTooth">reset tooth trap</button><button class="btn nextLocal gameNext locked" id="toothNext" disabled>Locked: clean the tooth first 🔒</button></div>
+          <div class="btn-row"><button class="btn secondary" id="resetTooth">start tooth trap</button><button class="btn nextLocal gameNext locked" id="toothNext" disabled>Locked: clean the tooth first 🔒</button></div>
         </div>
       </div>
     </section>
@@ -180,7 +180,7 @@
               <img class="cake-side-mermaid" src="assets/mermaid.png" alt="cute mermaid sticker">
             </div>
           </div>
-          <div class="btn-row"><button class="btn secondary" id="micBtn">blow near phone 🎤
+          <div class="btn-row"><button class="btn secondary" id="micBtn">blow near phone 🎤 </button><button class="btn" id="tapBlow">tap to blow ✨</button></div>
           <p class="small" id="wishReveal">Candle lit and waiting...</p>
         </div>
       </div>
@@ -204,15 +204,13 @@
       </div>
     </section>
 
-    <div class="nav" aria-hidden="false"><button id="backBtn" aria-label="Previous page">‹</button><div class="dots" id="dots"></div><button id="forwardBtn" aria-label="Next page">›</button></div>
+    <div class="nav" aria-hidden="false"><div class="dots" id="dots"></div></div>
   </main>
 
   <script>
     const screens=[...document.querySelectorAll('.screen')];
     const dots=document.getElementById('dots');
     const toast=document.getElementById('toast');
-    const backBtn=document.getElementById('backBtn');
-    const forwardBtn=document.getElementById('forwardBtn');
     const progress={abs:false,shell:false,tooth:false};
     let page=0;
 
@@ -266,8 +264,6 @@
         d.classList.toggle('on',i===page);
         d.classList.toggle('locked-dot',!!blockingInfo(i));
       });
-      backBtn.disabled=page===0;
-      forwardBtn.disabled=page===screens.length-1 || (!!blockingInfo(page+1) && blockingInfo(page+1).index===page);
     }
     function markSolved(key,buttonId,label){
       progress[key]=true;
@@ -282,15 +278,6 @@
       updateNav();
     }
 
-    backBtn.onclick=()=>go(page-1);
-    forwardBtn.onclick=()=>{
-      if(forwardBtn.disabled){
-        const block=blockingInfo(page+1);
-        showToast(block?.msg || 'Not yet 😈');
-        return;
-      }
-      go(page+1);
-    };
     document.querySelectorAll('.nextLocal').forEach(b=>b.addEventListener('click',()=>{
       if(b.disabled){showToast('Locked. Solve this rage game first 😭');return;}
       go(page+1);
